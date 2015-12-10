@@ -66,11 +66,14 @@ affect the market in the US. Thus we take the representative stock indices of th
 could improve on our baseline model. As expected, our accuracy was around 50%, so no improvement.</p>
 
 
-<p>Next, we looked a variety of factors such as the Nasdaq index, currency exchange rate, treasury bond yields and prices of commodities(corn, sugar, gold etc). The darker red spots means the corresponding items are highly correlated, whereas the dark blue spots mean highly uncorrelated. </p>
+<p>Next, we looked a variety of factors such as the Nasdaq index, currency exchange rate, treasury bond yields and prices of commodities(corn, sugar, gold etc). We created a correlation matrix for these features as seen in the figure below. The darker red spots means the corresponding items are highly correlated, whereas the dark blue spots mean they are highly uncorrelated.
+From the graph, we can see that Nasdaq's index and international indices are highly correlated with S&P's price. 
+</p>
 
 <img src="images/corr.png" alt="correlation matrix" class="inline"/>
 
-<p>Fundamental Analysis</p>
+<p>Fundamental Analysis - evaluating a stock based on underlying forces.<br>To perform fundamental analysis, we first gathered the data we need. This includes CPI, PPI, GDP, Treasury 10 year bonds, Treasury 2 year bonds, and Money Supply (M1 and M2). We merged our data into one dataframe in Pandas and used Linear Regression to predict the closing 
+price of S&P500. We believe our prediction were fairly accurate as can been seen in the graph below. </p>
 <img src="images/fa.png" alt="fundamental analysis" />
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
