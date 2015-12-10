@@ -66,31 +66,52 @@ affect the market in the US. Thus we take the representative stock indices of th
 could improve on our baseline model. As expected, our accuracy was around 50%, so no improvement.</p>
 
 
+<img src="images/5.png" />
+<p>As seen from this chart, the most separable features are DJI and NASDAQ, with distinct conditioned distribution of return. This of course makes sense as they both represent the US stock market overall and a number of stocks are overlapping with that in the basket of S&P 500. However, DJI and NASDAQ would not serve to be good indicators because they appear the same time as S&P 500. More useful information is global indices, which are determined before the close (or even open) of NYSE and NASDAQ - we can act on such information. An interesting observation is that S&P 500 is more closely related to European indices (DAX, Frankfurt, London and Paris) and they are fairly separable, while for Asian and Australian market, the two distributions are barely separable.</p>
+
+<img src="images/1.png" />
+<p>The figure above shows the trends of the indices are highly correlated.
+Dow Jones (DJI) contains 30 large companies and is also contained in S&P 500, weighted differently. The trend of Dow Jones is largely overlapping with S&P 500 but eventually outperforms by a margin. The reason for that is that the constant rebalancing of Dow Jones removes the companies that are no longer considered as "big and representative", and every rebalancing has a bigger effect given that it counts 1/30 of the composite. Such companies with good earning statistics will outperform in the long run.
+Noticably, between 1999 and 2001, NASDAQ rocketed up but later dropped down almost instantly by more than a half. This is the famous "Dot com bubble" when people got over-excited about high tech companies and resulted in highly overvalued stocks, which is not sustainable. Recently since 2013, NASDAQ soared up again against DJI and S&P, indicating the good investment values in the growing small sized tech companies.</p>
+
+<img src="images/index_plot.png" alt="trend fitting" />
+<p>This figure shows that mostly the global indices are correlated, although not as significant as DJI and NASDAQ. The global macroecomomic trends drives the indices. In drastic events like the financial crisis (2008-2009), dot-com bubble influence the global market in all.</p>
+
+<img src="images/2.png" />
+<p>Time series plot of the S&P 500 daily return shows constant mean (by symmetry) but not covariance stationary. Large variances happen at time stamps of severe market events (usually bad) - 2008 to 2009 financial crisis, for example. Such property makes it a little hard to apply time series models that generally requires covariance stationarity. We then explore using GARCH to fit this return sequence in section 4.</p>
+
+<img src="images/4.png" />
+<p>To test the normality of the return sequence, we plot the histogram of all returns. Even though it looks fairly normal, we should pay attention to the extrema at both tails.</p>
+
+<img src="images/15.png" />
+<p>This autocorrelation is very random with no clear pattern of previous memory. This suggests the future returns are hardly correlated with the return standing today, i.e. no momentum.</p>
+
+<img src="images/14.png" />
+<p>The cross correlation of S&P 500 vs DJI daily returns shows again very random fluctuations. This indicates we cannot act on DJI last information to predict S&P 500 future returns.</p>
+
+<img src="images/corr.png" alt="correlation matrix" class="inline"/>
 <p>Next, we looked a variety of factors such as the Nasdaq index, currency exchange rate, treasury bond yields and prices of commodities(corn, sugar, gold etc). We created a correlation matrix for these features as seen in the figure below. The darker red spots means the corresponding items are highly correlated, whereas the dark blue spots mean they are highly uncorrelated.
 From the graph, we can see that Nasdaq's index and international indices are highly correlated with S&P's price. 
 </p>
 
-<img src="images/corr.png" alt="correlation matrix" class="inline"/>
+<img src="images/11.png" />
+<p>Plotting Kalman filtered time series at the tail of the S&P 500.</p>
 
-<p>Fundamental Analysis - evaluating a stock based on underlying forces.<br>To perform fundamental analysis, we first gathered the data we need. This includes CPI, PPI, GDP, Treasury 10 year bonds, Treasury 2 year bonds, and Money Supply (M1 and M2). We merged our data into one dataframe in Pandas and used Linear Regression to predict the closing 
-price of S&P500. We believe our predictions follow the general trend of S&P500 fairly well. </p>
-<img src="images/trendfitting.png" alt="fundamental analysis" />
-<img src="images/index_plot.png" alt="trend fitting" />
-<img src="images/1" />
-<img src="images/2" />
-<img src="images/3" />
-<img src="images/4" />
-<img src="images/5" />
-<img src="images/6" />
-<img src="images/7" />
-<img src="images/8" />
-<img src="images/9" />
-<img src="images/10" />
-<img src="images/11" />
-<img src="images/12" />
-<img src="images/13" />
-<img src="images/14" />
-<img src="images/15" />
+<img src="images/10.png" />
+<p>Here we compare the daily trend of the Kalman filtered result vs. observed market trend, where a "True" is a up, and a "False" is a down.</p>
+
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h3>
+<p>Time series models are implemented to fit the S&P 500 trend and forecast. ARIMA fitted the log return with a prediction power of 53%. GARCH model is used to characterize the variance of the time series. Kalman filtering constantly adjust the prediction time series by including the new information. The fitted data has a trend fitting power of over 80%.</p>
+
+<!--<img src="images/3.png" />
+<img src="images/6.png" />
+<img src="images/7.png" />
+<img src="images/8.png" />
+<img src="images/9.png" />
+<img src="images/12.png" />
+<img src="images/13.png" />
+-->
+
 <h3>
   References and Image sources:
   www.wikiwealth.com
