@@ -63,22 +63,27 @@ affect the market in the US. Thus we take the representative stock indices of th
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Our Results</h3>
 <p>The first method we used is <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest Classification</a> and the data is simply the attributes of the S&P500 index itself. We wanted to see if just by looking at simple attributes such as the opening/closing price and high/low of each day, we
-could improve on our baseline model. As expected, our accuracy was around 50%, so no improvement.</p>
+could improve on our baseline model. As expected, our accuracy was around 50%, so no improvement. Next, we moved on to visualization of our data by plotting the features of our data and looking for any trends.</p>
 
 
 <img src="images/5.png" />
-<p>As seen from this chart, the most separable features are DJI and NASDAQ, with distinct conditioned distribution of return. This of course makes sense as they both represent the US stock market overall and a number of stocks are overlapping with that in the basket of S&P 500. However, DJI and NASDAQ would not serve to be good indicators because they appear the same time as S&P 500. More useful information is global indices, which are determined before the close (or even open) of NYSE and NASDAQ - we can act on such information. An interesting observation is that S&P 500 is more closely related to European indices (DAX, Frankfurt, London and Paris) and they are fairly separable, while for Asian and Australian market, the two distributions are barely separable.</p>
+<p>As seen from this chart, the most separable features are DJI and NASDAQ with distinct conditioned distribution of return. This of course makes sense as they both represent the US stock market overall and a number of stocks are overlapping with that in the basket of S&P 500. However, DJI and NASDAQ would 
+not serve to be good indicators because they appear the same time as S&P 500. More useful information is global indices, which are determined before the close (or even open) of NYSE and NASDAQ - we can act on such information. An interesting observation is that S&P 500 is more closely related to European 
+indices (DAX, Frankfurt, London and Paris) and they are fairly separable, while for Asian and Australian market, the two distributions are barely separable.</p>
 
 <img src="images/1.png" />
 <p>The figure above shows the trends of the indices are highly correlated.
-Dow Jones (DJI) contains 30 large companies and is also contained in S&P 500, weighted differently. The trend of Dow Jones is largely overlapping with S&P 500 but eventually outperforms by a margin. The reason for that is that the constant rebalancing of Dow Jones removes the companies that are no longer considered as "big and representative", and every rebalancing has a bigger effect given that it counts 1/30 of the composite. Such companies with good earning statistics will outperform in the long run.
-Noticably, between 1999 and 2001, NASDAQ rocketed up but later dropped down almost instantly by more than a half. This is the famous "Dot com bubble" when people got over-excited about high tech companies and resulted in highly overvalued stocks, which is not sustainable. Recently since 2013, NASDAQ soared up again against DJI and S&P, indicating the good investment values in the growing small sized tech companies.</p>
+Dow Jones (DJI) contains 30 large companies and is also contained in S&P 500, weighted differently. The trend of Dow Jones is largely overlapping with S&P 500 but eventually outperforms by a margin. The reason for that is that the constant rebalancing of Dow Jones removes the companies that are no longer considered 
+as "big and representative", and every rebalancing has a bigger effect given that it counts 1/30 of the composite. Such companies with good earning statistics will outperform in the long run.
+Noticably, between 1999 and 2001, NASDAQ rocketed up but later dropped down almost instantly by more than a half. This is the famous "Dot com bubble" when people got over-excited about high tech companies and resulted in highly overvalued stocks, which is not sustainable. Recently since 2013, NASDAQ soared up again 
+against DJI and S&P, indicating the good investment values in the growing small sized tech companies.</p>
 
 <img src="images/index_plot.png" alt="trend fitting" />
 <p>This figure shows that mostly the global indices are correlated, although not as significant as DJI and NASDAQ. The global macroecomomic trends drives the indices. In drastic events like the financial crisis (2008-2009), dot-com bubble influence the global market in all.</p>
 
 <img src="images/2.png" />
-<p>Time series plot of the S&P 500 daily return shows constant mean (by symmetry) but not covariance stationary. Large variances happen at time stamps of severe market events (usually bad) - 2008 to 2009 financial crisis, for example. Such property makes it a little hard to apply time series models that generally requires covariance stationarity. We then explore using GARCH to fit this return sequence in section 4.</p>
+<p>Time series plot of the S&P 500 daily return shows constant mean (by symmetry) but not covariance stationary. Large variances happen at time stamps of severe market events (usually bad) - 2008 to 2009 financial crisis, for example. Such property makes it a little hard to apply time series models that generally 
+requires covariance stationarity. We then explore using GARCH to fit this return sequence in section 4.</p>
 
 <img src="images/4.png" />
 <p>To test the normality of the return sequence, we plot the histogram of all returns. Even though it looks fairly normal, we should pay attention to the extrema at both tails.</p>
