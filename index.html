@@ -107,7 +107,16 @@ From the graph, we can see that Nasdaq's index and international indices are hig
 <p>Here we compare the daily trend of the Kalman filtered result vs. observed market trend, where a "True" is a up, and a "False" is a down.</p>
 
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h3>
-<p>Time series models are implemented to fit the S&P 500 trend and forecast. ARIMA fitted the log return with a prediction power of 53%. GARCH model is used to characterize the variance of the time series. Kalman filtering constantly adjust the prediction time series by including the new information. The fitted data has a trend fitting power of over 80%.</p>
+<p>In this project, we were motivated to predict the trend of S&P 500 index, one of the most quoted US stock market index in the world. Our starting point is that the market is affected by a number of features:<br>
+<ol>
+  <li>the global market trend (global indices, commodity prices)</li>
+  <li>currency strength (exchange rates)</li>
+  <li>macroeconomic fundamentals</li>
+  <li>fluctuations of its derivatives.</li>
+</ol>
+
+We obtained historical market data of various instruments (about 50) and economic data from Quandl, Yahoo Finance, Wikipedia, Federal Reserve. For part one, we did exploratory data analysis, plotted the index series and analyzed the cross correlation between features and selected ones that have the most potential in prediction. We then implemented time series models to fit the S&P 500 trend and forecast. ARIMA fitted the log return with a prediction power of 53%. GARCH model is used to characterize the variance of the time series. Kalman filtering constantly adjust the prediction time series by including the new information. The fitted data has a trend fitting power of over 80%. Next, we moved on to machine learning, where we separated the dataset into train and test. We used various machine learning tools including KNN, SVM, logistic regression and KNB, to learn on the training data set of multiple combinations of features. We find simply using historical data has prediction power marginally better than than coin flip, if not worse. Using futures price data has prediction power similar to historical data. Eventually we used global indices that are highly correlated with the S&P 500 and the prediction power raised up to 76%. Finally, we extended our analysis and fit the index with linear regression on macroeconomic factors.
+We thank the lecturers and TFs of AC209 Data Science for their help, especially Sail Wu for all his help along the way.</p>
 
 <!--<img src="images/3.png" />
 <img src="images/6.png" />
