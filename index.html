@@ -25,7 +25,7 @@
 <p>Welcome! For our final project, we attempt to use machine learning algorithms to predict the trends of the stock market, specificallly the S&P500 index. Our goal is to predict whether the index will go up or down by the end
 of a particular week. So essentially we are faced with a binary classification problem. Our baseline, or the worst we can achieve is a 50% accuracy through randomly guessing up or down. We want to improve on that by choosing appropriate
 data to train our classifiers on. </p>
-<img src="images/cartoon.jpg" alt="red dice"  class="inline" width="350" height="700"/>
+<img src="images/cartoon.jpg" alt="red dice"  class="inline" width="350" height="500"/>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Our Motivation</h3>
@@ -62,17 +62,25 @@ affect the market in the US. Thus we take the representative stock indices of th
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Our Results</h3>
-The first method we used is <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest Classification</a> and the data is simply the attributes of the S&P500 index itself. We wanted to see if just by looking at simple attributes such as the opening/closing price and high/low of each day, we
-could improve on our baseline model. As expected, our accuracy was around 50%, so no improvement.
+<p>The first method we used is <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest Classification</a> and the data is simply the attributes of the S&P500 index itself. We wanted to see if just by looking at simple attributes such as the opening/closing price and high/low of each day, we
+could improve on our baseline model. As expected, our accuracy was around 50%, so no improvement.</p>
 
-Next, we l
-Correlation between
+
+<p>Next, we looked a variety of factors such as the Nasdaq index, currency exchange rate, treasury bond yields and prices of commodities(corn, sugar, gold etc). We created a correlation matrix for these features as seen in the figure below. The darker red spots means the corresponding items are highly correlated, whereas the dark blue spots mean they are highly uncorrelated.
+From the graph, we can see that Nasdaq's index and international indices are highly correlated with S&P's price. 
+</p>
+
 <img src="images/corr.png" alt="correlation matrix" class="inline"/>
 
-Fundamental Analysis
-<img src="images/fundamental_analysis.png" alt="fundamental analysis" />
+<p>Fundamental Analysis - evaluating a stock based on underlying forces.<br>To perform fundamental analysis, we first gathered the data we need. This includes CPI, PPI, GDP, Treasury 10 year bonds, Treasury 2 year bonds, and Money Supply (M1 and M2). We merged our data into one dataframe in Pandas and used Linear Regression to predict the closing 
+price of S&P500. We believe our predictions follow the general trend of S&P500 fairly well. </p>
+<img src="images/fa.png" alt="fundamental analysis" />
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+  References and Image sources:
+  www.wikiwealth.com
+  www.ticbeat.com
+  play.google.com
+</h3>
 
         </section>
       </div>
