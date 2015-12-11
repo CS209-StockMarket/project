@@ -13,14 +13,14 @@
     <section class="page-header">
       <h1 class="project-name">Win The Market!!!</h1>
       <h2 class="project-tagline"></h2>
-      <a href="https://github.com/CS209-StockMarket/project" class="btn">View on GitHub</a>
-      <a href="https://github.com/CS209-StockMarket/project/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/CS209-StockMarket/project/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="https://github.com/CS209-StockMarket/AC209-Project_Win_The_Market" class="btn">View on GitHub</a>
+      <a href="https://github.com/CS209-StockMarket/AC209-Project_Win_The_Market/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/CS209-StockMarket/AC209-Project_Win_The_Market/tarball/master" class="btn">Download .tar.gz</a>
+      
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
 
 <p>Welcome! For our final project, we attempt to use machine learning algorithms to predict the trends of the stock market, specificallly the S&P500 index. Our goal is to predict whether the index will go up or down by the end
 of a particular week. So essentially we are faced with a binary classification problem. Our baseline, or the worst we can achieve is a 50% accuracy through randomly guessing up or down. We want to improve on that by choosing appropriate
@@ -105,6 +105,9 @@ From the graph, we can see that Nasdaq's index and international indices are hig
 
 <img src="images/10.png" />
 <p>Here we compare the daily trend of the Kalman filtered result vs. observed market trend, where a "True" is a up, and a "False" is a down.</p>
+
+<img src="images/roc.png" />
+<p>Here we exclude the currency exchange rates and use only the four preceding European and Hong Kong market historical data as features. The result turns out really good with prediction power ranging from 71% to 76%.</p>
 
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h3>
 <p>In this project, we were motivated to predict the trend of S&P 500 index, one of the most quoted US stock market index in the world. Our starting point is that the market is affected by a number of features:<br>
